@@ -1,0 +1,49 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<title>Edição de Contato - JSF Agenda</title>
+	<style type="text/css">
+		.bt-at {
+			margin-top: 10px;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form>
+		<div>
+			<h2>Editar Contatos</h2>
+			<div>
+				<h:outputLabel>Nome:</h:outputLabel>
+				<h:inputText id="nome-id" value="#{contatoSessao.nome}" class="form-control"/>
+			</div>
+			<div>
+				<h:outputLabel>Email:</h:outputLabel>
+				<h:inputText id="email-id" value="#{contatoSessao.email}" class="form-control"/>
+			</div>
+			<div>
+				<h:outputLabel>Senha:</h:outputLabel>
+				<h:inputText id="senha-id" value="#{contatoSessao.senha}" class="form-control"/>
+			</div>
+			<div>
+				<h:outputLabel>Sexo:</h:outputLabel>
+				<h:selectOneRadio value="#{contatoSessao.sexo}">
+					<f:selectItem itemValue="M" itemLabel="Masculino"/>
+					<f:selectItem itemValue="F" itemLabel="Feminino"/>
+				</h:selectOneRadio>
+			</div>
+			<div>
+				<h:outputLabel>Endereço:</h:outputLabel>
+				<h:inputText id="endereco-id" value="#{contatoSessao.endereco}" class="form-control"/>
+			</div>			
+		</div>
+		<div>
+			<h:commandButton value="Atualizar" class="btn btn-primary bt-at" action="#{contatoBean.atualizarContato(contatoSessao)}"></h:commandButton>
+		</div>
+	</h:form>
+
+</h:body>
+</html>

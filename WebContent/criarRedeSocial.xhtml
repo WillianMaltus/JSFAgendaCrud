@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<title>Criação de Contato - JSF Agenda</title>
+	<style type="text/css">
+		.bt-at {
+			margin-top: 10px;
+		}
+	</style>
+</h:head>
+<h:body>
+	<h:form>
+		<div>
+			<h2>Criar Contato</h2>
+			<div>
+				<h:outputLabel>Nome:</h:outputLabel>
+				<h:inputText id="nome-id" value="#{redeSocialBean.nome}" class="form-control"/>
+			</div>
+			<div>
+				<h:outputLabel>Link:</h:outputLabel>
+				<h:inputText id="link-id" value="#{redeSocialBean.link}" class="form-control"/>
+			</div>		
+		</div>
+		<div>
+			<h:commandButton value="Criar" class="btn btn-primary bt-at" action="#{redeSocialBean.criarRedeSocial(redeSocialBean)}"></h:commandButton>
+		</div>
+	</h:form>
+
+</h:body>
+</html>

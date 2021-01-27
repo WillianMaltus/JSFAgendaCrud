@@ -1,0 +1,72 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<title>JSF Contatos - CRUD</title>
+	<style type="text/css">
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+
+.btnSpace {
+	margin: 17px;
+}
+</style>
+</h:head>
+<h:body>
+	<center>
+		<h2>
+			<h:outputText value="Redes Sociais - SIS2020" />
+		</h2>
+	</center>
+	<!--<div class="alert alert-primary" role="alert">
+		<b>
+			<p >nome do contato:  </p>
+			<h:outputText  value= "#{redeSocialBean.redesSociaisListDB.get(0).contato.nome}" var="redeSocial"> teste</h:outputText>
+		</b>
+	</div>
+	-->
+	<h:form id="redesSociaisForm">
+		<h:dataTable id="Redes_SociaisTable" binding="#{table}"
+			value="#{redeSocialBean.redesSociaisListDB}" var="redeSocial"
+			class="table table-striped table-hover table-bordered tableUpdated">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{redeSocial.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome da Rede Social</f:facet>
+				<h:outputText value="#{redeSocial.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Link</f:facet>
+				<h:outputText value="#{redeSocial.link}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Atualizar</f:facet>
+				<h:commandButton action="#{redeSocialBean.buscarRedeSocial(redeSocial.id)}"
+					value="Atualizar" class="btn btn-primary" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Deletar</f:facet>
+				<h:commandButton action="#{redeSocialBean.deletarRedeSocial(redeSocial.id)}"
+					value="Deletar" class="btn btn-danger" />
+			</h:column>
+			
+		</h:dataTable>
+		<center>
+			<h:commandButton action="listarcontatos.xhtml?faces-redirect=true"
+				value="Voltar" class="btn btn-danger btnSpace" />
+			<h:commandButton action="criarRedeSocial.xhtml?faces-redirect=true"
+				value="Adicionar" class="btn btn-success btnSpace" />
+		</center>
+	</h:form>
+</h:body>
+</html>

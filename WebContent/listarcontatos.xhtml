@@ -1,0 +1,81 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<meta charset="utf-8" name="viewport"
+		content="width=device-width, initial-scale=1"
+		http-equiv="X-UA-Conpatible" />
+	<h:outputStylesheet library="css" name="bootstrap.css" />
+	<title>JSF Contatos - CRUD</title>
+	<style type="text/css">
+.tableUpdated {
+	width: 90% !important;
+	margin: 17px 58px 0 !important;
+}
+
+.btnSpace {
+	margin: 17px;
+}
+</style>
+</h:head>
+<h:body>
+	<center>
+		<h2>
+			<h:outputText value="Contatos (Registros) - SIS2020" />
+		</h2>
+	</center>
+	<h:form id="contatoForm">
+		<h:dataTable id="contatoTable" binding="#{table}"
+			value="#{contatoBean.contatosListDB}" var="contato"
+			class="table table-striped table-hover table-bordered tableUpdated">
+			<h:column>
+				<f:facet name="header">Id</f:facet>
+				<h:outputText value="#{contato.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Nome do Contato </f:facet>
+				<h:outputText value="#{contato.nome}" />
+			</h:column>
+			<!--
+			<h:column>
+				<f:facet name="header">Email/Rede Social</f:facet>
+				<h:outputText value="#{contato.email}" />
+			</h:column>
+			-->
+			<h:column>
+				<f:facet name="header">Senha</f:facet>
+				<h:outputText value="#{contato.senha}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Sexo</f:facet>
+				<h:outputText value="#{contato.sexo}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Endereço</f:facet>
+				<h:outputText value="#{contato.endereco}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Redes Sociais</f:facet>
+				<h:commandButton action="#{contatoBean.salvarIdSessao(contato.id)}"
+					value="Redes Sociais" class="btn btn-info" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Atualizar</f:facet>
+				<h:commandButton action="#{contatoBean.buscarContato(contato.id)}"
+					value="Atualizar" class="btn btn-primary" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Deletar</f:facet>
+				<h:commandButton action="#{contatoBean.deletarContato(contato.id)}"
+					value="Deletar" class="btn btn-danger" />
+			</h:column>
+		</h:dataTable>
+		<center>
+			<h:commandButton action="criarContato.xhtml?faces-redirect=true"
+				value="Criar novo contato" class="btn btn-success btnSpace" />
+		</center>
+	</h:form>
+</h:body>
+</html>
